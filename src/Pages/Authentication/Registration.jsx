@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
+import { imageURL } from "../../ImageHosting/ImageHost";
+import toast from "react-hot-toast";
+import useAuth from "../../Hooks/Auth";
+import useAxios from "../../Hooks/useAxios";
 
 
 const Registration = () => {
     const navigate=useNavigate()
     const [eye,setEye]=useState(true)
-    // const  axiosPublic=usePublicAxios()
-    // const {createUser,Updateprofile,signInGoogle}=useAuth()
+   const userAxios=useAxios()
+    const {createUser,Updateprofile,signInGoogle}=useAuth()
     const handleUser= async e=>{
       e.preventDefault()
       const name=e.target.name.value
@@ -22,51 +26,50 @@ const Registration = () => {
       const passa = /(?=.*[a-z])/
       const pass6 = /.{6,}/
      const special = /(?=.*[@$!%*?&])/
-    //   if (!passA.test(password)) {
-    //     toast.error('Password need one UpperCase Later')
-    //     return
-    //   }
-    //   else if (!passa.test(password)) {
-    //     toast.error('Password need one LowerCase Later')
-    //     return
-    //   }
-    //   else if (!pass6.test(password)) {
-    //     toast.error('Password  need at least 6  character and One Number')
-    //     return
-    //   }
-    //   else if(!special.test(password)){
-    //     toast.error('Password  need one special latter')
-    //     return
-    //   }
-    //   else {
-    //   createUser(email,password).then(
-    //     Updateprofile(name,image).then(async()=>{
-    //     navigate('/')
-    //     console.log(info)
-    //    await axiosPublic.post('/user',info).then(()=>{
-    //       toast.success("user login")
+      if (!passA.test(password)) {
+        toast.error('Password need one UpperCase Later')
+        return
+      }
+      else if (!passa.test(password)) {
+        toast.error('Password need one LowerCase Later')
+        return
+      }
+      else if (!pass6.test(password)) {
+        toast.error('Password  need at least 6  character and One Number')
+        return
+      }
+      else if(!special.test(password)){
+        toast.error('Password  need one special latter')
+        return
+      }
+      else {
+      createUser(email,password).then(
+        Updateprofile(name,image).then(async()=>{
+        navigate('/')
+        console.log(info)
+       await userAxios.post('/user',info).then(()=>{
+          toast.success("user login")
         
-    //     })
+        })
   
         
-    //     }).catch(error=>{
-    //      toast.error(error.message)
-    //       })
-    //   )
-    //   .catch()
-    //  }
+        }).catch(error=>{
+         toast.error(error.message)
+          })
+      )
+      .catch()
+     }
     }
      const handleGoogleLogIn=async()=>{
-    //  await signInGoogle().
-    //   then(()=>{
+     await signInGoogle().
+    then(()=>{
+      toast.success("Login success")
+      navigate('/findandadd')
+     })
       
-    //     toast.success("login by google")
-    //     navigate('/')
-    //     })
-    //   .catch(error=>{
-    //     toast.error(error.message)
-  
-    //     })
+     .catch(error=>{
+          toast.error(error.message)
+     })
      }
     
     return (

@@ -10,7 +10,10 @@ import router from './Routs/Router.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <AuthProvider>
-  <RouterProvider router={router} />
+    <div className='bg-background h-screen'>
+    <RouterProvider  router={router} />
+    </div>
+ 
   </AuthProvider>
   </StrictMode>,
 )
