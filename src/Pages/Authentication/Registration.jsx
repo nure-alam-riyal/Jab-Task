@@ -19,7 +19,7 @@ const Registration = () => {
       const email=e.target.email.value
       const password=e.target.password.value
       const image=await imageURL(photo)
-    const  info={userName:name,image,email,role:"Customer"}
+    const  info={userName:name,image,email}
     
     //console.log(info)
     const passA = /(?=.*[A-Z])/

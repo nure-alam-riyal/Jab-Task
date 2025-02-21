@@ -1,8 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import {  signInWithEmailAndPassword,updateProfile,GoogleAuthProvider,signInWithPopup,signOut, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.init";
-import { useToasterStore } from "react-hot-toast";
+// import toast, { useToasterStore } from "react-hot-toast";
 import useAxios from "../Hooks/useAxios";
+import toast from "react-hot-toast";
 
 export const AuthContext=createContext()
 const AuthProvider = ({children}) => {
@@ -51,12 +52,12 @@ const AuthProvider = ({children}) => {
                            email:CurretUser?.email,
                            userName:CurretUser?.displayName,
                            image:CurretUser?.photoURL,
-                           role:'Customer',
+                          
                        }
                        //console.log(userInfo)
                      userAxios.post('/user',userInfo).then(res=>{
                        if(res.data.insertedId){
-                                  useToasterStore.success("user login")
+                                 toast.success("user login")
                        }
                       })
                   //   axiosPublic.post('/jwt',{ email:CurretUser?.email})

@@ -3,6 +3,7 @@ import Login from "../Pages/Authentication/Login";
 import Registration from "../Pages/Authentication/Registration";
 import FindAndAddJob from "../Pages/FindAndAddJob";
 import PrivateRoute from "./PrivateRoute";
+import AddJobTAsk from "../Pages/AddJobTAsk";
 
 
 const router = createBrowserRouter([
@@ -14,8 +15,13 @@ const router = createBrowserRouter([
       element:<Registration></Registration>
     },{
       path:'/findandadd',
-      element:<PrivateRoute><FindAndAddJob></FindAndAddJob></PrivateRoute>
-    }
+      element:<PrivateRoute><FindAndAddJob></FindAndAddJob></PrivateRoute>,
+      
+    },
+    {
+      path:'/findandadd/addjob',
+      element:<AddJobTAsk></AddJobTAsk>
+    },
   ])
 
 export default  router;
