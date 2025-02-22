@@ -28,7 +28,7 @@ Job Task is a task management application where users can **add**, **edit**, **d
 ### Steps  
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/yourusername/job-task.git
+   git clone https://github.com/yourusername/job-task.git](https://github.com/nure-alam-riyal/Jab-Task.git
    cd job-task
 Install dependencies:
 sh
