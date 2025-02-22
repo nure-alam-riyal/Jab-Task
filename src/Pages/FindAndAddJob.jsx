@@ -10,7 +10,7 @@ const FindAndAddJob = () => {
       <div>
         <h2 className="text-center font-semibold text-4xl">Select Your Choice</h2>
         <div className="flex justify-center mt-12 gap-10">
-          <Link to="findandadd/addjob">
+          <Link to="/findandadd/AllTask">
             <div className="card  shadow-xl px-10 py-6">
               <div className="flex justify-center">
                 <SiIconfinder className="text-5xl findJob text-center" />
